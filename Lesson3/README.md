@@ -2,7 +2,7 @@
 
 Create a neural network that correctly classifies clothing of the Fashion MNIST dataset.
 
-## Diractory content
+## Directory content
 <ul> 
 <li>MNIST.ipynb: jupyter notebook replicating the lesson contents;</li>
 <li>MNIST_extra.ipynb: jupyter notebook with extra tests for a deeper personal understanding;</li>

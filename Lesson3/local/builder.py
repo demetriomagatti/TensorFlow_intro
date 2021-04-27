@@ -36,7 +36,7 @@ class ModelBuilder:
         if self.flatten_input:
             model.add(tf.keras.layers.Flatten(input_shape=self.input_shape))
         if isinstance(self.hidden_layer_neurons, int):
-            for i in range(sel  f.num_hidden_layers):
+            for i in range(self.num_hidden_layers):
                 model.add(tf.keras.layers.Dense(self.hidden_layer_neurons, activation=self.hidden_layer_activation))
         else:
             for i in range(self.num_hidden_layers):

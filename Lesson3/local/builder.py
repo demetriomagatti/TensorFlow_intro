@@ -15,6 +15,7 @@ class ModelBuilder:
         self.normalize = True
         self.cache_dataset  = True
         self.shuffle_train = True
+        self.verbose = 1
         self.epochs = 5
         self.input_shape = (28, 28, 1)
         self.num_hidden_layers = 1
@@ -35,7 +36,7 @@ class ModelBuilder:
         if self.flatten_input:
             model.add(tf.keras.layers.Flatten(input_shape=self.input_shape))
         if isinstance(self.hidden_layer_neurons, int):
-            for i in range(self.num_hidden_layers):
+            for i in range(sel  f.num_hidden_layers):
                 model.add(tf.keras.layers.Dense(self.hidden_layer_neurons, activation=self.hidden_layer_activation))
         else:
             for i in range(self.num_hidden_layers):
@@ -55,7 +56,7 @@ class ModelBuilder:
             train_dataset = train_dataset.repeat().shuffle(num_train_examples)
         train_dataset = train_dataset.batch(self.batch_size)
         self.model.compile(optimizer=self.optimizer,loss=self.loss,metrics=self.metrics)
-        return self.model.fit(train_dataset, epochs=self.epochs, steps_per_epoch=math.ceil(num_train_examples/self.batch_size))
+        return self.model.fit(train_dataset, epochs=self.epochs, steps_per_epoch=math.ceil(num_train_examples/self.batch_size), verbose=self.verbose)
 
 
     def evaluate(self):
